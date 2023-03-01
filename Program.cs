@@ -1,6 +1,12 @@
-﻿#region Print duplicated values
+﻿#region Problems
 int[] arr = { 5, 1, 4, 6, 7, 3, 5, 7, 3 };
 PrintDuplicatedValues(arr);
+PrintNumbers(6);
+GetPercentage();
+#endregion
+
+#region Print duplicated values
+
 void PrintDuplicatedValues(int[] array)
 {
     Console.WriteLine("Print Duplicated Numbers");
@@ -28,7 +34,6 @@ void PrintValues(IEnumerable<int> duplicatedValues)
 #endregion
 
 #region Print Numbers
-PrintNumbers(6);
 void PrintNumbers(int numbersToPrint)
 {
     Console.WriteLine("\n \n \nPrint Numbers");
@@ -44,22 +49,35 @@ void PrintNumbers(int numbersToPrint)
 #endregion
 
 #region GetPercentage
-Console.WriteLine("\n \n \nGet Percentage");
-int NumberOfNewlyHiredMales = 0;
-int NumberOfNewlyHiredFemales = 0;
-int NumberOfPermanentMales = 0;
-int NumberOfPermanentFemales = 0;
-int NumberOfResignedMales = 0;
-int NumberOfResignedFemales = 0;
-GetTheCountOfNewHires("Enter the count of newly hired males", true);
-GetTheCountOfNewHires("Enter the count of newly hired females", false);
-GetTheCountWithPermanentPositions("Enter the count of permanent males", true);
-GetTheCountWithPermanentPositions("Enter the count of permanent females", false);
-GetTheCountOfResignedPersonnels("Enter the count of resigned males", true);
-GetTheCountOfResignedPersonnels("Enter the count of resigned females", false);
-PrintInfo("Hired Employees", NumberOfNewlyHiredMales, NumberOfNewlyHiredFemales);
-PrintInfo("Permanent Employees", NumberOfPermanentMales, NumberOfPermanentFemales);
-PrintInfo("Resigned Employees", NumberOfResignedMales, NumberOfResignedFemales);
+
+int NumberOfNewlyHiredMales;
+int NumberOfNewlyHiredFemales;
+int NumberOfPermanentMales;
+int NumberOfPermanentFemales;
+int NumberOfResignedMales;
+int NumberOfResignedFemales;
+
+
+void GetPercentage()
+{
+    Console.WriteLine("\n \n \nGet Percentage");
+    NumberOfNewlyHiredMales = 0;
+    NumberOfNewlyHiredFemales = 0;
+    NumberOfPermanentMales = 0;
+    NumberOfPermanentFemales = 0;
+    NumberOfResignedMales = 0;
+    NumberOfResignedFemales = 0;
+    GetTheCountOfNewHires("Enter the count of newly hired males", true);
+    GetTheCountOfNewHires("Enter the count of newly hired females", false);
+    GetTheCountWithPermanentPositions("Enter the count of permanent males", true);
+    GetTheCountWithPermanentPositions("Enter the count of permanent females", false);
+    GetTheCountOfResignedPersonnels("Enter the count of resigned males", true);
+    GetTheCountOfResignedPersonnels("Enter the count of resigned females", false);
+    PrintInfo("Hired Employees", NumberOfNewlyHiredMales, NumberOfNewlyHiredFemales);
+    PrintInfo("Permanent Employees", NumberOfPermanentMales, NumberOfPermanentFemales);
+    PrintInfo("Resigned Employees", NumberOfResignedMales, NumberOfResignedFemales);
+}
+
 void GetTheCountOfNewHires(string message, bool isMale)
 {
     int numberOfNewlyHired = 0;
@@ -70,7 +88,7 @@ void GetTheCountOfNewHires(string message, bool isMale)
         if (numberOfNewlyHired < 0) GetCountError("Error: Please enter a valid number", isMale ? "NumberOfNewlyHiredMales" : "NumberOfNewlyHiredFemales", () => GetTheCountOfNewHires(message, isMale));
         else
         {
-            if(isMale) NumberOfNewlyHiredMales = numberOfNewlyHired;
+            if (isMale) NumberOfNewlyHiredMales = numberOfNewlyHired;
             else NumberOfNewlyHiredFemales = numberOfNewlyHired;
         }
     }
